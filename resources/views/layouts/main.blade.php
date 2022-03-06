@@ -10,6 +10,9 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-prototype.min.css">
     {{-- <link href='https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'> --}}
+
+    <!--C'est moi qui l'ai ajouté-->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
 <body>
@@ -48,6 +51,9 @@
     <script>
         $(document).foundation();
     </script>
+
+    <!--C'est moi qui l'ai ajouté-->
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>
