@@ -24,3 +24,11 @@ use App\Http\Controllers\ContactController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/series', [SeriesController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
+
+Route::post('/contact', [ContactController::class, 'store']);
+
+//Route::get('/series/create', [SeriesController::class, 'create'])->name('series.create');
+
+Route::get('/series/{id}', [SeriesController::class, 'show'])->name('series.show');
+
+//Route::get(('/series/{title}', [SeriesController::class, '']))

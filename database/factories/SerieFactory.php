@@ -14,8 +14,8 @@ class SerieFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence,
-            'content' => $this->faker->realText,
+            'title' => $this->faker->realTextBetween($min = 8, $max = 20),
+            'content' => $this->faker->realTextBetween($min = 500, $max = 1000),
             'acteurs' => $this->faker->name,
             'url' => $this->faker->url,
             'tags' => $this->faker->realText,

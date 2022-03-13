@@ -424,5 +424,15 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+/*C'est moi qui l'ai ajouté*/
+h2 {
+    text-align: center;
+    font-size: large;
+    color: blue;
+}
+/*C'est moi qui l'ai ajouté*/
+h1 {
+    color: crimson;
+}
 @tailwund components;
 

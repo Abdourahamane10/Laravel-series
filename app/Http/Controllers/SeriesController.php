@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 
 class SeriesController extends Controller
@@ -13,6 +14,16 @@ class SeriesController extends Controller
         //echo $serie->author->name; //affiche le nom de l’auteur
 
 
-        return view('series');
+        $series = \App\Models\Serie::all(); //get all series
+
+        return view('series', ['series' => $series]);
+    }
+
+    public function show($id)
+    {
+        $serie = \App\Models\Serie::where('id', $id)->first(); //get first serie with id == $id
+        return view('series/single', array( //Pass the serie to the view
+            'serie' => $serie
+        ));
     }
 }
