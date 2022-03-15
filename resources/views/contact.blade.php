@@ -26,7 +26,7 @@
             <textarea id="message" name="message" cols="30" rows="10" @class(['p-4', 'font-bold' => true])></textarea><br>
             <label for="date">date :</label>
             <input type="datetime" id="date" name="date"><br>
-            <button type="submit">Enregistrer</button>
+            <button type="submit">envoyer</button>
         </form>
     </div>
 @endsection

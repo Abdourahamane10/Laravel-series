@@ -13,6 +13,9 @@
 
     <!--C'est moi qui l'ai ajouté-->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+    <!--added-->
+    @livewireStyles
 </head>
 
 <body>
@@ -54,6 +57,9 @@
 
     <!--C'est moi qui l'ai ajouté-->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <!--added-->
+    @livewireScripts
 </body>
 
 </html>
