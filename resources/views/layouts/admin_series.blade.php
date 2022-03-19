@@ -25,10 +25,10 @@
         <div class="top-bar-left">
             <ul class="menu">
                 <!--<li class="menu-text">Super Series</li>-->
-                <li><a href="/">Home</a></li>
-                <li><a href="/series">Series</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/admin">Admin</a></li>
+                <!-- <li><a href="/">Home</a></li>-->
+                <li><a href="{{ route('series.index') }}">Series</a></li>
+                <!--<li><a href="/contact">Contact</a></li>
+                <li><a href="/admin">Admin</a></li>-->
             </ul>
         </div>
     </div>

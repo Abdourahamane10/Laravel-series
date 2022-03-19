@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminSeriesController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/series', [SeriesController::class, 'index']);
@@ -27,8 +29,10 @@ Route::get('/contact', [ContactController::class, 'index']);
 
 Route::post('/contact', [ContactController::class, 'store']);
 
+Route::resource('admin/series', AdminController::class);
+
 //Route::get('/series/create', [SeriesController::class, 'create'])->name('series.create');
 
 Route::get('/series/{id}', [SeriesController::class, 'show'])->name('series.show');
 
-//Route::get(('/series/{title}', [SeriesController::class, '']))
+Route::get('/admin', [AdminSeriesController::class, 'index']);
