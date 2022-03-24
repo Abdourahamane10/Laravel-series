@@ -49,4 +49,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Serie::class, 'author_id');
     }
+
+    /**
+     * Get the user comment'
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'author_id');
+    }
 }
