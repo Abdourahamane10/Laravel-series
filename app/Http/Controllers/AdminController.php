@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Serie;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -14,6 +15,9 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $series = \App\Models\Serie::all(); //get all series
+
+        return view('admin', ['series' => $series]);
     }
 
     /**
@@ -23,7 +27,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/create');
     }
 
     /**
@@ -34,51 +38,96 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'acteurs' => 'required',
+            'url' => 'required|max:200',
+            'status' => 'required|max:45',
+
+        ]);
+
+        $serie = new Serie;
+        $serie->author_id = User::inRandomOrder()->first()->id;
+        $serie->title = $request->title;
+        $serie->content = $request->content;
+        $serie->acteurs = $request->acteurs;
+        $serie->url = $request->url;
+        $serie->tags = $request->tags;
+        $serie->date = now();
+        $serie->status = $request->status;
+        $serie->save();
+        return redirect('admin/series')->with('status', 'Données enregistrées');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Serie  $serie
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Serie $serie)
+    public function show($id)
     {
-        //
+        $serie = \App\Models\Serie::where('id', $id)->first();
+        //$serie::where('id', $serie->id)->first(); //get first serie with id == $id
+        return view('series/single', array( //Pass the serie to the view
+            'serie' => $serie
+        ));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Serie  $serie
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Serie $serie)
+    public function edit($id)
     {
-        //
+        $serie = \App\Models\Serie::where('id', $id)->first();
+        //$serie::where('id', $serie->id)->first();
+        return view('admin/edit', array('serie' => $serie));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Serie  $serie
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Serie $serie)
+    public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'acteurs' => 'required',
+            'url' => 'required|max:200',
+            'status' => 'required|max:45',
+
+        ]);
+
+        $serie = \App\Models\Serie::find($id);
+        $serie->title = $request->title;
+        $serie->content = $request->content;
+        $serie->acteurs = $request->acteurs;
+        $serie->url = $request->url;
+        $serie->tags = $request->tags;
+        $serie->date = now();
+        $serie->status = $request->status;
+        $serie->update();
+        return redirect('admin/series/' . $serie->id)->with('status', 'serie updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Serie  $serie
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Serie $serie)
+    public function destroy($id)
     {
-        //
+        $serie = Serie::find($id);
+        $serie->delete();
+        return redirect('admin/series')->with('status', 'serie deleted successfully');
     }
 }

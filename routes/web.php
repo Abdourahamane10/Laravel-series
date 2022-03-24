@@ -29,9 +29,15 @@ Route::get('/contact', [ContactController::class, 'index']);
 
 Route::post('/contact', [ContactController::class, 'store']);
 
-Route::resource('admin/series', AdminController::class);
+Route::resource('admin/series', AdminController::class)->only('index');
+Route::resource('admin/series', AdminController::class)->only('store');
+Route::resource('admin/series', AdminController::class)->only('create');
+Route::resource('admin/series', AdminController::class)->only('edit');
+Route::resource('admin/series', AdminController::class)->only('update');
+Route::resource('admin/series', AdminController::class)->only('show');
+Route::resource('admin/series', AdminController::class)->only('destroy');
 
-//Route::get('/series/create', [SeriesController::class, 'create'])->name('series.create');
+
 
 Route::get('/series/{id}', [SeriesController::class, 'show'])->name('series.show');
 
