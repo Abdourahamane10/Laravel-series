@@ -28,6 +28,7 @@
         </table>
         <br>
         <button type="button"><a href="{{ route('series.create') }}">Créer une nouvelle série</a></button>
+        <br>
 
     </div>
 

@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    <div class="form">
+    <div>
         <form action="{{ url('/contact') }}" method="POST">
             @csrf
             <label for="name">Name :</label>
@@ -23,9 +23,7 @@
             <label for="email">email :</label>
             <input type="email" id="email" name="email"><br>
             <label for="message">message :</label>
-            <textarea id="message" name="message" cols="30" rows="10" @class(['p-4', 'font-bold' => true])></textarea><br>
-            <!--<label for="date">date :</label>
-            <input type="datetime" id="date" name="date"><br>-->
+            <textarea id="message" name="message" cols="30" rows="10"></textarea><br>
             <button type="submit">envoyer</button>
         </form>
     </div>
