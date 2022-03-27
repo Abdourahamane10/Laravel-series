@@ -29,6 +29,8 @@ Route::get('/contact', [ContactController::class, 'index']);
 
 Route::post('/contact', [ContactController::class, 'store']);
 
+Route::post('/series', [SeriesController::class, 'store']);
+
 Route::resource('admin/series', AdminController::class)->only('index');
 Route::resource('admin/series', AdminController::class)->only('store');
 Route::resource('admin/series', AdminController::class)->only('create');
