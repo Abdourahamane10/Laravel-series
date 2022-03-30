@@ -21,7 +21,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AdminSeriesController;
+//use App\Http\Controllers\AdminSeriesController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/series', [SeriesController::class, 'index']);
@@ -42,5 +42,3 @@ Route::resource('admin/series', AdminController::class)->only('destroy');
 
 
 Route::get('/series/{id}', [SeriesController::class, 'show'])->name('series.show');
-
-Route::get('/admin', [AdminSeriesController::class, 'index']);
