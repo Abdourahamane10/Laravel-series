@@ -1,8 +1,8 @@
 @extends('layouts/main')
 
 @section('content')
-    <p>{{ $serie->title }}</p>
-    <p>{{ $serie->content }}</p><br>
+    <p>Title : {{ $serie->title }}</p>
+    <p> Content : {{ $serie->content }}</p><br>
     <h3>url : <a href="{{ $serie->url }}">{{ $serie->url }}</a></h3><br>
     <div class="pied de page">
         <footer>
