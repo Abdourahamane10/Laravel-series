@@ -17,7 +17,7 @@ class AdminController extends Controller
     {
         $series = \App\Models\Serie::all(); //get all series
 
-        return view('admin', ['series' => $series]);
+        return view('admin/admin', ['series' => $series]);
     }
 
     /**
@@ -27,7 +27,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('admin/create');
+        return view('series/create');
     }
 
     /**
@@ -85,7 +85,7 @@ class AdminController extends Controller
     {
         $serie = \App\Models\Serie::where('id', $id)->first();
         //$serie::where('id', $serie->id)->first();
-        return view('admin/edit', array('serie' => $serie));
+        return view('series/edit', array('serie' => $serie));
     }
 
     /**
