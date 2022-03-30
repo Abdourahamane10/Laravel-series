@@ -12,16 +12,16 @@ class Comment extends Model
     /**
      * Get the user that authored the comment.
      */
-    public function author()
+    /* public function author()
     {
         return $this->belongsTo(User::class, 'author_id');
-    }
+    }*/
 
     /**
      * Get the serie that authored the comment.
      */
-    public function series()
+    /*public function series()
     {
         return $this->belongsTo(Serie::class, 'serie_id');
-    }
+    }*/
 }

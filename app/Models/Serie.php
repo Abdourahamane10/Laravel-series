@@ -20,8 +20,8 @@ class Serie extends Model
     /**
      * Get the series comment'
      */
-    public function comments()
+    /* public function comments()
     {
         return $this->hasMany(Comment::class, 'serie_id');
-    }
+    }*/
 }
