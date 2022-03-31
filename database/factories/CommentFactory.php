@@ -18,7 +18,7 @@ class CommentFactory extends Factory
         return [
             'author_id' => User::inRandomOrder()->first()->id,
             'serie_id' => Serie::inRandomOrder()->first()->id,
-            'content' => $this->faker->sentences,
+            'content' => $this->faker->sentence,
             'date' => $this->faker->dateTime,
         ];
     }
