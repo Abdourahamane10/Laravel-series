@@ -16,4 +16,13 @@ class Serie extends Model
     {
         return $this->belongsTo(User::class, 'author_id');
     }
+
+
+    /**
+     * Get the serie comments.
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'serie_id');
+    }
 }
