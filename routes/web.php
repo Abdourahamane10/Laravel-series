@@ -21,7 +21,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
-//use App\Http\Controllers\AdminSeriesController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/series', [SeriesController::class, 'index']);
