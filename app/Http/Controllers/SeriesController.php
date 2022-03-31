@@ -19,9 +19,9 @@ class SeriesController extends Controller
 
         $series = \App\Models\Serie::all(); //get all series
 
-        //$comments = \App\Models\Comment::all(); //get all comments
+        $comments = \App\Models\Comment::all(); //get all comments
 
-        return view('series', ['series' => $series]);
+        return view('series', ['series' => $series, 'comments' => $comments]);
     }
 
     public function show($id)
@@ -30,5 +30,21 @@ class SeriesController extends Controller
         return view('series/single', array( //Pass the serie to the view
             'serie' => $serie
         ));
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'content' => 'required',
+
+        ]);
+
+        $comment = new Comment;
+        $comment->author_id = User::inRandomOrder()->first()->id;
+        $comment->serie_id = Serie::inRandomOrder()->first()->id;
+        $comment->content = $request->content;
+        $comment->date = now();
+        $comment->save();
+        return redirect('/series')->with('status', 'Données enregistrées');
     }
 }
