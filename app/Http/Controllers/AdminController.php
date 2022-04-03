@@ -50,7 +50,8 @@ class AdminController extends Controller
         ]);
 
         //$name = Storage::disk('public')->put('media', $request->file);
-        $filename = time() . '.' . $request->file->extension();
+        $name = time();
+        $filename = $name . '.' . $request->file->extension();
         $request->file->storeAs('media', $filename, 'public');
 
         $serie = new Serie;
@@ -62,7 +63,7 @@ class AdminController extends Controller
         $serie->tags = $request->tags;
         $serie->date = now();
         $serie->status = $request->status;
-        $serie->media = $filename;
+        $serie->media = $name;
         $serie->save();
         return redirect('admin/series')->with('status', 'Données enregistrées');
     }
