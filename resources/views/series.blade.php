@@ -5,10 +5,21 @@
 
     <div>
         <livewire:search />
-        <ul>
+        <ul class="utl">
             @foreach ($series as $serie)
-                <li class="relative"><a
-                        href="{{ route('series.show', ['id' => $serie->id]) }}">{{ $serie->title }}</a></li>
+                <li class="relative">
+                    @if ($serie->media != "")
+                    <a href="#"><img src="{{url('/storage/media/'.$serie->media.'.jpg')}}" alt="" height="200" width="200"/></a><br>
+                @else
+                    <a href="#"><img src="{{url('/storage/media/mediaDefault.png')}}" alt="" height="200" width="200"/></a><br>
+                @endif
+
+                    <div>
+                      <a href="{{ route('series.show', ['id' => $serie->id]) }}">Titre : {{ $serie->title }}</a><br>
+                      <p>Acteurs : {{ $serie->acteurs }}</p><br>
+                      <p>&copy; Auteur : {{ $serie->author->name }}</p>
+                    </div>
+                </li><br><br>
             @endforeach
         </ul>
     </div><br><br>
