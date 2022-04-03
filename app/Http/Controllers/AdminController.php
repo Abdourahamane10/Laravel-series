@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Serie;
 use App\Models\User;
+use App\Models\Serie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -38,6 +39,7 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+
         $validated = $request->validate([
             'title' => 'required',
             'content' => 'required',
@@ -46,6 +48,10 @@ class AdminController extends Controller
             'status' => 'required|max:45',
 
         ]);
+
+        //$name = Storage::disk('public')->put('media', $request->file);
+        $filename = time() . '.' . $request->file->extension();
+        $request->file->storeAs('media', $filename, 'public');
 
         $serie = new Serie;
         $serie->author_id = User::inRandomOrder()->first()->id;
@@ -56,6 +62,7 @@ class AdminController extends Controller
         $serie->tags = $request->tags;
         $serie->date = now();
         $serie->status = $request->status;
+        $serie->media = $filename;
         $serie->save();
         return redirect('admin/series')->with('status', 'Données enregistrées');
     }
