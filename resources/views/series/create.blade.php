@@ -39,9 +39,9 @@
                 <option value="Publiée">Publié</option>
                 <option value="Modifiée">Modifié</option>
             </select>
-            <label for="file">Choose a profile picture:</label>
+            <!--<label for="file">Choose a profile picture:</label>
             <input type="file"
-            id="file" name="file" accept="image/png, image/jpeg"><br>
+            id="file" name="file" accept="image/png, image/jpeg"><br>-->
 
             <button type="submit">Créer</button>
         </form>

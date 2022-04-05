@@ -50,9 +50,9 @@ class AdminController extends Controller
         ]);
 
         //$name = Storage::disk('public')->put('media', $request->file);
-        $name = time();
+        /*$name = time();
         $filename = $name . '.' . $request->file->extension();
-        $request->file->storeAs('media', $filename, 'public');
+        $request->file->storeAs('media', $filename, 'public');*/
 
         $serie = new Serie;
         $serie->author_id = User::inRandomOrder()->first()->id;
@@ -63,7 +63,7 @@ class AdminController extends Controller
         $serie->tags = $request->tags;
         $serie->date = now();
         $serie->status = $request->status;
-        $serie->media = $name;
+        //$serie->media = $name;
         $serie->save();
         return redirect('admin/series')->with('status', 'Données enregistrées');
     }
