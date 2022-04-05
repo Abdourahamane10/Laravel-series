@@ -11,7 +11,7 @@
                     @if ($serie->media != "")
                     <a href="#"><img src="{{url('/media/'.$serie->media.'.jpg')}}" alt="media" height="200" width="200"/></a><br>
                 @else
-                    <a href="#"><img src="{{url('/media/mediaDefault.png')}}" alt="media" height="200" width="200"/></a><br>
+                    <a href="#"><img src="{{url('/media/mediaDefault.jpg')}}" alt="media" height="200" width="200"/></a><br>
                 @endif
 
                     <div>

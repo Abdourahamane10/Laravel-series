@@ -4,7 +4,7 @@
     <p> @if ($serie->media != "")
         <a href="#"><img src="{{url('/media/'.$serie->media.'.jpg')}}" alt="" height="200" width="200"/></a><br>
         @else
-        <a href="#"><img src="{{url('/media/mediaDefault.png')}}" alt="" height="200" width="200"/></a><br>
+        <a href="#"><img src="{{url('/media/mediaDefault.jpg')}}" alt="" height="200" width="200"/></a><br>
         @endif</p>
     <p>Title : {{ $serie->title }}</p><br>
     <p> Content : {{ $serie->content }}</p><br>
