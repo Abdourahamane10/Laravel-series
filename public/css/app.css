@@ -473,14 +473,14 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-backdrop-sepia: ;
 }
 
-/*C'est moi qui l'ai ajouté*/
+/*added*/
 h2 {
     text-align: center;
     font-size: large;
     color: blue;
 }
 
-/*C'est moi qui l'ai ajouté*/
+/*added*/
 h1 {
     color: crimson;
 }
@@ -489,5 +489,10 @@ h1 {
     display: flex;
     list-style-type: none;
 }
+
+input[type="search"] {
+    font-family: FontAwesome;
+}
+
 
 @tailwund components;
