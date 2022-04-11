@@ -27,17 +27,17 @@
                 <!--<li class="menu-text">Super Series</li>-->
                 <li><a href="/">Home</a></li>
                 <li><a href="/series">Series</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li><a href="/contacts/contact">Contact</a></li>
                 <li><a href="/admin/series">Admin</a></li>
             </ul>
         </div>
     </div>
     <!-- End Top Bar -->
 
-    <div class="callout large primary">
+    <div class="entete callout large primary">
         <div class="text-center">
-            <h1>Series</h1>
-            <h2 class="subheader">Series Master</h2>
+            <h1 class="gros">Series</h1>
+            <h2 class="gros subheader">Series Master</h2>
         </div>
     </div>
 
@@ -61,6 +61,11 @@
 
     <!--added-->
     @livewireScripts
+    <footer>
+        <p>
+            &copy; {{ date(('d-m-Y')) }}
+        </p>
+       </footer>
 </body>
 
 </html>
