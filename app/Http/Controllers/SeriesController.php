@@ -26,13 +26,24 @@ class SeriesController extends Controller
 
     public function show($id)
     {
-        $serie = \App\Models\Serie::where('id', $id)->first(); //get first serie with id == $id
+        $serie = \App\Models\Serie::where('id', $id)->first(); //get first serie with serie_nam == $serie_name
+        $author = \App\Models\User::where('id', $serie->author->id)->first(); //get the author of the serie
+        $comments = \App\Models\Comment::where('serie_id', $id)->get();
+        $users = \App\Models\User::all();
+        $rating = \App\Models\Comment::where('serie_id', $id)->avg('rating');
+
+
+
         return view('series/single', array( //Pass the serie to the view
-            'serie' => $serie
+            'serie' => $serie,
+            'author' => $author,
+            'comments' => $comments,
+            'users' => $users,
+            'rating' => round($rating, 1),
         ));
     }
 
-    public function store(Request $request)
+    /*public function store(Request $request)
     {
         $validated = $request->validate([
             'content' => 'required',
@@ -46,5 +57,5 @@ class SeriesController extends Controller
         $comment->date = now();
         $comment->save();
         return redirect('/series')->with('status', 'Données enregistrées');
-    }
+    }*/
 }
