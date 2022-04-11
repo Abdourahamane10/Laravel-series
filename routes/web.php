@@ -21,14 +21,19 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CommentsController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/series', [SeriesController::class, 'index']);
-Route::get('/contact', [ContactController::class, 'index']);
+Route::get('contacts/contact', [ContactController::class, 'index']);
 
-Route::post('/contact', [ContactController::class, 'store']);
+Route::post('contacts/contact', [ContactController::class, 'store']);
+
+Route::get('contacts/listContacts', [ContactController::class, 'getContacts']);
 
 Route::post('/series', [SeriesController::class, 'store']);
+
+Route::post('/comment', [CommentsController::class, 'create']);
 
 Route::resource('admin/series', AdminController::class)->only('index');
 Route::resource('admin/series', AdminController::class)->only('store');
