@@ -22,6 +22,7 @@ class CreateCommentsTable extends Migration
             $table->longText('content');
             $table->dateTime('date')->useCurrent();
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 
