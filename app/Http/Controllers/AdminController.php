@@ -123,7 +123,7 @@ class AdminController extends Controller
         $serie->date = now();
         $serie->status = $request->status;
         $serie->update();
-        return redirect('admin/series/' . $serie->id)->with('status', 'serie updated successfully');
+        return redirect('/series')->with('status', 'serie updated successfully');
     }
 
     /**
