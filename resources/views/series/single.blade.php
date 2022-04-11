@@ -14,4 +14,11 @@
             <p>&copy; Auteur : {{ $serie->author->name }}</p>
         </footer>
     </div>
+
+    <br/>
+    @include('comments.create')
+    <br/>
+    @include('comments.listComments')
+    <br/>
+
 @endsection
