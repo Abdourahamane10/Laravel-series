@@ -1,0 +1,16 @@
+.utl li {
+    display: flex;
+    list-style-type: none;
+}
+
+.right-part {
+    padding-left: 20px;
+}
+
+h3 {
+    margin: 0
+}
+
+input[type="search"] {
+    font-family: FontAwesome;
+}
