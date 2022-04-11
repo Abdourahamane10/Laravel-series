@@ -1,0 +1,11 @@
+table,
+th,
+td {
+    border: 2px solid rgb(165, 162, 162);
+    border-color: #aaadad;
+}
+
+table {
+    width: 80%;
+    margin: auto;
+}
