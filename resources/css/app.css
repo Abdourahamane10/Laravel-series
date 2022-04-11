@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwund components;
 @tailwind utilities;
+@import url('contact.css');
+@import url('fivestardisplay.css');
+@import url('fivestarinput.css');
+@import url('series.css');
+@import url('header.css');
+@import url('footer.css');
