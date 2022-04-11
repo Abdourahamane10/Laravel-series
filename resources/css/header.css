@@ -1,0 +1,12 @@
+.entete {
+    background-repeat: repeat-x;
+    background-image: url('/header_image/header.jpg');
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+
+}
+
+.gros {
+    font-size: 400%;
+    color: white;
+}
