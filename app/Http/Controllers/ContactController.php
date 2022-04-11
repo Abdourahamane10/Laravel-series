@@ -10,7 +10,7 @@ class ContactController extends Controller
     //
     function index()
     {
-        return view('contact');
+        return view('contacts/contact');
     }
 
     public function store(Request $request)
@@ -28,6 +28,14 @@ class ContactController extends Controller
         $contact->message = $request->message;
         $contact->date = now();
         $contact->save();
-        return redirect('/contact')->with('status', 'Données enregistrées');
+        return redirect('/contacts/contact')->with('status', 'Données enregistrées');
+    }
+
+    public function getContacts()
+    {
+        $contacts = \App\Models\Contact::all();
+        return view('contacts/listContacts', array(
+            'contacts' => $contacts
+        ));
     }
 }
