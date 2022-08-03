@@ -78,7 +78,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 ## Cloner le projet  
-    git clone https://github.com/maryem7/Rendu_projet_PHP_bibliotheque.git 
+    git clone https://github.com/Abdourahamane10/Laravel-series.git 
 
 
 ## Copier le fichier .env.exemple et renommer la copie en .env
